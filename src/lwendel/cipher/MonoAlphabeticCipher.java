@@ -18,42 +18,6 @@ public class MonoAlphabeticCipher implements Cipher {
 	
 	//methods
 	
-	//get-method(s)
-	public String getSecretAlphabet() {
-		return this.secretAlphabet;
-	}
-	
-	//set-method(s)
-	protected void setSecretAlphabet(String secretAlphabet) {
-		//I am checking for mistakes in this class because it makes less code only writing it once.
-		boolean ok = true; //it is true until something tells him it's not
-		for (int j = 0 ; j < 1 ; j++) {
-			if (secretAlphabet.length() != 30) {
-				ok = false;
-				break;
-			}
-			for (int i = 0 ; i < 33 ; i++) { //it isn't allowed to contain one of the first 32 "things" in the ASCII-table
-				char x = (char) i;
-				String y = "" + x;
-				if (secretAlphabet.contains(y)) {
-					ok = false;
-					break;
-				}
-			}
-			for (int i = 0 ; i < 30 ; i++) { //cant't be longer than 30 letters and no equal characters
-				if (secretAlphabet.lastIndexOf(secretAlphabet.charAt(i)) != secretAlphabet.indexOf(secretAlphabet.charAt(i))) {
-					ok = false;
-					break;
-				}
-			}
-		}
-		if (ok) {
-			this.secretAlphabet = secretAlphabet; //changed
-		} else {
-			System.out.println("There is at least one mistake in the secret alphabet"); //stays normal alphabet
-		}
-	}
-
 	//method for encrypting, changing only the defined 30-letter-key 
 	public String encrypt(String text) {
 		text = text.toLowerCase(); //only working in lowerCase
@@ -153,5 +117,41 @@ public class MonoAlphabeticCipher implements Cipher {
 			System.out.println("Some letters couldn't be decrypted");
 		}
 		return normText;
+	}
+	
+	//set-method(s)
+	protected void setSecretAlphabet(String secretAlphabet) {
+		//I am checking for mistakes in this class because it makes less code only writing it once.
+		boolean ok = true; //it is true until something tells him it's not
+		for (int j = 0 ; j < 1 ; j++) {
+			if (secretAlphabet.length() != 30) {
+				ok = false;
+				break;
+			}
+			for (int i = 0 ; i < 33 ; i++) { //it isn't allowed to contain one of the first 32 "things" in the ASCII-table
+				char x = (char) i;
+				String y = "" + x;
+				if (secretAlphabet.contains(y)) {
+					ok = false;
+					break;
+				}
+			}
+			for (int i = 0 ; i < 30 ; i++) { //cant't be longer than 30 letters and no equal characters
+				if (secretAlphabet.lastIndexOf(secretAlphabet.charAt(i)) != secretAlphabet.indexOf(secretAlphabet.charAt(i))) {
+					ok = false;
+					break;
+				}
+			}
+		}
+		if (ok) {
+			this.secretAlphabet = secretAlphabet; //changed
+		} else {
+			System.out.println("There is at least one mistake in the secret alphabet"); //stays normal alphabet
+		}
+	}
+	
+	//get-method(s)
+	public String getSecretAlphabet() {
+		return this.secretAlphabet;
 	}
 }

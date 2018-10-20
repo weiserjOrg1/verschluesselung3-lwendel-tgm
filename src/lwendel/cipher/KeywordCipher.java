@@ -14,6 +14,7 @@ public class KeywordCipher extends MonoAlphabeticCipher {
 	}
 	
 	//methods
+	
 	public void setKeyword(String keyword) {
 		String key = "";
 		String alphabet = "abcdefghijklmnopqrstuvwxyzßäöü";

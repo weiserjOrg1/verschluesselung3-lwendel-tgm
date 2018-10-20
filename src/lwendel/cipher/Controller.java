@@ -17,11 +17,14 @@ public class Controller implements ActionListener {
 	public Controller() {
 		this.v = new View(this);
 	}
+	
+	//methods
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		//I could have used switch-case, but "if" was my first thought
-		if (this.v.getButtonSelected() == 1) { //Shift
+		//Shift
+		if (this.v.getButtonSelected() == 1) {
 			int shiftValue;
 			try { //because sShiftCipher() works with int
 				shiftValue = Integer.parseInt(this.v.getSecrAlph());
@@ -37,7 +40,8 @@ public class Controller implements ActionListener {
 			}
 		}
 		
-		if (this.v.getButtonSelected() == 2) { //Substitution
+		//Substitution
+		if (this.v.getButtonSelected() == 2) {
 			SubstitutionCipher cipher = new SubstitutionCipher(this.v.getSecrAlph());
 			if (this.v.isDecrPressed(e)) {
 				this.v.setOutText(cipher.decrypt(this.v.getInText()));
@@ -47,7 +51,8 @@ public class Controller implements ActionListener {
 			}
 		}
 		
-		if (this.v.getButtonSelected() == 3) { //Keyword
+		//Keyword
+		if (this.v.getButtonSelected() == 3) {
 			KeywordCipher cipher = new KeywordCipher(this.v.getSecrAlph());
 			if (this.v.isDecrPressed(e)) {
 				this.v.setOutText(cipher.decrypt(this.v.getInText()));
@@ -57,7 +62,8 @@ public class Controller implements ActionListener {
 			}
 		}
 		
-		if (this.v.getButtonSelected() == 4) { //Shift
+		//Transposition
+		if (this.v.getButtonSelected() == 4) { 
 			int transposValue;
 			try { //because TranspositionCipher() works with int
 				transposValue = Integer.parseInt(this.v.getSecrAlph());
@@ -72,7 +78,5 @@ public class Controller implements ActionListener {
 				this.v.setOutText(cipher.encrypt(this.v.getInText()));
 			}
 		}
-		
-
 	}
 }

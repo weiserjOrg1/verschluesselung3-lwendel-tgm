@@ -19,6 +19,8 @@ public class ShiftCipher extends MonoAlphabeticCipher {
 		
 	}
 	
+	//methods
+	
 	//set-method(s)
 	public void setShiftValue(int value) {
 		value = value % 30; //everything above 30 would be unnecessary

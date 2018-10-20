@@ -8,10 +8,14 @@ package lwendel.cipher;
 
 public class SubstitutionCipher extends MonoAlphabeticCipher{
 	
+	//constructor
 	public SubstitutionCipher(String secretAlphabet) {
 		this.setSecretAlphabet(secretAlphabet);
 	}
 	
+	//methods
+	
+	//set-Method(s)
 	public void setSecretAlphabet(String secretAlphabet) {
 		super.setSecretAlphabet(secretAlphabet); //using the MonoAlphabeticCipher-method
 	}

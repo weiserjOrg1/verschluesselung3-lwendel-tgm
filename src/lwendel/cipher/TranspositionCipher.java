@@ -16,15 +16,7 @@ public class TranspositionCipher implements Cipher{
 		this.setTranspositionLevel(transpositionLevel);
 	}
 
-	//set-method(s)
-	public void setTranspositionLevel(int transpositionLevel) {
-		//I don't know how to transposition with a level of -1 so...
-		if (transpositionLevel > 0) {
-			this.transposlvl = transpositionLevel;
-		} else {
-			this.transposlvl = 1;
-		}
-	}
+	//methods
 	
 	//method for encrypting
 	public String encrypt(String text) {
@@ -80,4 +72,15 @@ public class TranspositionCipher implements Cipher{
 		
 		return decrText;
 	}
+	
+	//set-method(s)
+		public void setTranspositionLevel(int transpositionLevel) {
+			//I don't know how to transposition with a level of -1 so...
+			if (transpositionLevel > 0) {
+				this.transposlvl = transpositionLevel;
+			} else {
+				this.transposlvl = 1;
+			}
+		}
+		
 }
