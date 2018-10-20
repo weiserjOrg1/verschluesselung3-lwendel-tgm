@@ -1,7 +1,7 @@
 package lwendel.cipher;
 
 /**
- * This is the class for crypting.
+ * This is a class for crypting with a single alphabet.
  * @author lwendel
  * @version 11-10-18
  */
@@ -25,6 +25,7 @@ public class MonoAlphabeticCipher implements Cipher {
 	
 	//set-method(s)
 	protected void setSecretAlphabet(String secretAlphabet) {
+		//I am checking for mistakes in this class because it makes less code only writing it once.
 		boolean ok = true; //it is true until something tells him it's not
 		for (int j = 0 ; j < 1 ; j++) {
 			if (secretAlphabet.length() != 30) {
@@ -126,7 +127,7 @@ public class MonoAlphabeticCipher implements Cipher {
 			}
 		}
 		if (mistake) { //...this is typed into the console
-			System.out.println("Mistakes were made while encrypting");
+			System.out.println("Some letters couldn't be encrypted");
 		}
 		return cryptedText;
 	}
@@ -149,7 +150,7 @@ public class MonoAlphabeticCipher implements Cipher {
 		
 		}
 		if (mistake) { //the same as before
-			System.out.println("Mistakes were made while decrypting");
+			System.out.println("Some letters couldn't be decrypted");
 		}
 		return normText;
 	}

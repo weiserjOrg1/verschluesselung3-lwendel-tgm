@@ -7,7 +7,7 @@ import javax.swing.*;
 import javax.swing.border.*;
 
 /**
- * 
+ * The Frame that opens when running the class Controller.
  * @author lwendel
  * @version 2018-10-20
  */
