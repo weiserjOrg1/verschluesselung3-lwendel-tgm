@@ -59,6 +59,9 @@ public class View extends JFrame {
 		Dimension d = new Dimension(220, 250);
 		this.outText.setPreferredSize(d);
 		this.inText.setPreferredSize(d);
+		this.inText.setLineWrap(true);
+		this.outText.setLineWrap(true);
+		this.secrAlph.setLineWrap(true);
 		Border b1 = BorderFactory.createLineBorder(Color.RED);
 		this.outText.setBorder(b1);
 		this.outText.setEditable(false);
