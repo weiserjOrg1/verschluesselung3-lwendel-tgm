@@ -3,7 +3,7 @@ package lwendel.cipher;
 /**
  * This is the class for the TranspositionCipher.
  * @author lwendel
- * @version 2018-10-20
+ * @version 2018-10-21
  */
 
 public class TranspositionCipher implements Cipher{
@@ -19,20 +19,19 @@ public class TranspositionCipher implements Cipher{
 	//methods
 	
 	//method for encrypting
-	public String encrypt(String text) {
+	public String encrypt(final String text) {
 		String encrText = "";
 		if (text.length() <= transposlvl) {
 			return text;
 		}
 		
 		//writing it onto the Array the one way...
-		long a = text.length() / this.transposlvl;
-		int b = text.length() / this.transposlvl;
-		if (a > b) b = b + 1; //if there are commas, add another repetition
+		int b = (int) Math.ceil(text.length() / (double) this.transposlvl);
 		char[][] hv = new char[b][this.transposlvl];
 		int letter = 0;
 		for (int i = 0 ; i < b ; i++ ) {
 			for (int j = 0 ; j < this.transposlvl ; j++) {
+				if (text.length() <= letter) break;
 				hv[i][j] = text.charAt(letter);
 				letter++;
 			}
@@ -41,7 +40,9 @@ public class TranspositionCipher implements Cipher{
 		//reading it of the Array the other way
 		for (int i = 0 ; i < this.transposlvl ; i++ ) {
 			for (int j = 0 ; j < b ; j++) {
-				encrText += String.valueOf(hv[j][i]);
+				if (!String.valueOf(hv[j][i]).equals(null)) {
+					encrText += String.valueOf(hv[j][i]);
+				}
 			}
 		}
 		return encrText;
@@ -53,20 +54,21 @@ public class TranspositionCipher implements Cipher{
 		if (text.length() <= transposlvl) {
 			return text;
 		}
-		long a = text.length() / this.transposlvl;
-		int b = text.length() / this.transposlvl;
-		if (a > b) b = b + 1;
+		int b = (int) Math.ceil(text.length() / (double) this.transposlvl);
 		char[][] hv = new char[b][this.transposlvl];
 		int letter = 0;
 		for (int i = 0 ; i < this.transposlvl ; i++ ) {
 			for (int j = 0 ; j < b ; j++) {
+				if (text.length() <= letter) break;
 				hv[j][i] = text.charAt(letter);
 				letter++;
 			}
 		}
 		for (int i = 0 ; i < b ; i++ ) {
 			for (int j = 0 ; j < this.transposlvl ; j++) {
-				decrText += String.valueOf(hv[i][j]);
+				if (!String.valueOf(hv[i][j]).equals(null)) {
+					decrText += String.valueOf(hv[i][j]);
+				}
 			}
 		}
 		

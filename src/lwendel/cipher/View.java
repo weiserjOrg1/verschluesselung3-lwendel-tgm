@@ -117,7 +117,7 @@ public class View extends JFrame {
 		return false;
 	}
 	
-	//get-mehtod(s)
+	//get-method(s)
 	
 	//returns a value for the chosen Button
 	public int getButtonSelected() {

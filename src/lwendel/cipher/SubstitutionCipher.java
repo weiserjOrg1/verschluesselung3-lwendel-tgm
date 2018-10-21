@@ -2,7 +2,7 @@ package lwendel.cipher;
 
 /**
  * this is the class for crupting with a substitution alphabet. Very simple.
- * @author lars
+ * @author lwendel
  * @version 11-10-18
  */
 
